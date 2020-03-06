@@ -5,6 +5,8 @@
         <pop v-dom-portal="target" :message="msg"></pop>
 
         <button @click="changeMsg">change Msg</button>
+        <button @click="changeTarget">change Target</button>
+        <button @click="changeTargetToRoot">change Target to root</button>
     </div>
 </template>
 
@@ -18,7 +20,7 @@
 
         data() {
             return {
-                target: '#comA',
+                target: false,
 
                 msg: 'msg1'
             }
@@ -27,6 +29,14 @@
         methods: {
             changeMsg() {
                 this.msg = 'msg' + Math.random() * 10
+            },
+
+            changeTarget() {
+                this.target = this.target === false ? '#comA' : false;
+            },
+
+            changeTargetToRoot() {
+                this.target = true;
             }
         }
     }
