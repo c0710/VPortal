@@ -27,14 +27,17 @@
         },
 
         methods: {
+            // 切换pop组件所携带的值
             changeMsg() {
                 this.msg = 'msg' + Math.random() * 10
             },
 
+            // 将pop组件在当前组件内和comA组件内切换
             changeTarget() {
                 this.target = this.target === false ? '#comA' : false;
             },
 
+            // 将pop组件移到body下
             changeTargetToRoot() {
                 this.target = true;
             }
