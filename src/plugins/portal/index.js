@@ -26,7 +26,6 @@ const directive = {
         console.log(homes.get(el));
 
         if (!hasMovedOut && value) {
-            console.log(1);
             // 如果该节点还未移出，且有目标节点
 
             // 将该节点移至目标节点，并用占位符home代替原本的该节点位置
@@ -35,13 +34,10 @@ const directive = {
 
             homes.set(el, Object.assign({}, homes.get(el), { hasMovedOut: true }));
         } else if (hasMovedOut && value === false) {
-            console.log(2);
             // 如果该节点已经移出去 但是value为false，则将该节点归位
             parentNode.replaceChild(el, home);
             homes.set(el, Object.assign({}, homes.get(el), { hasMovedOut: false }));
         } else if (value) {
-            console.log(3);
-            // already moved, going somewhere else
             getTarget(value).appendChild(el);
         }
     },
